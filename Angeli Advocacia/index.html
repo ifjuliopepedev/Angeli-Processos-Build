@@ -1,24 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <!-- Mantendo favicon do antigo -->
-    <link rel="icon" type="image/png" sizes="32x32" href="https://github.com/ifjuliopepedev/Angeli-Processos-Backend/blob/main/favicon.png?raw=true">
-
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-    <!-- Mantendo título antigo -->
-    <title>Angeli Advocacia</title>
+    <title>Unity Web Player | Angeli Advocacia</title>
   </head>
-
-  <body style="text-align: center; padding: 0; border: 0; margin: 0;" width="100%" overflow="hidden;">
-    <!-- Canvas adaptado para tela cheia mas mantendo background antigo -->
-    <canvas id="unity-canvas" width="730" height="1200" tabindex="-1" style="width: 100%; height: 100%; background-color: #162441; position: fixed;"></canvas>
-
-    <script src="Build/Angeli Advocacia.loader.js"></script>
+  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
+    <canvas id="unity-canvas" width=1080 height=1920 tabindex="-1" style="width: 1080px; height: 1920px; background: #231F20"></canvas>
+    <script src="Build/123.loader.js"></script>
     <script>
-      // Mobile detection e ajuste de viewport (mantendo do novo index)
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
         var meta = document.createElement('meta');
         meta.name = 'viewport';
         meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
@@ -30,22 +22,21 @@
         canvas.style.position = "fixed";
 
         document.body.style.textAlign = "left";
+
       }
 
-      // Criando instância do Unity (mantendo paths e nomes antigos)
       createUnityInstance(document.querySelector("#unity-canvas"), {
         arguments: [],
-        dataUrl: "Build/Angeli Advocacia.data",
-        frameworkUrl: "Build/Angeli Advocacia.framework.js",
-        codeUrl: "Build/Angeli Advocacia.wasm",
+        dataUrl: "Build/123.data",
+        frameworkUrl: "Build/123.framework.js",
+        codeUrl: "Build/123.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Julio Pepe",
         productName: "Angeli Advocacia",
         productVersion: "1.0",
-        // matchWebGLToCanvasSize: false,
-        // devicePixelRatio: 1,
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       }).then((unityInstance) => {
-        // Aqui você pode adicionar código pós-load, se precisar
       }).catch((message) => {
         alert(message);
       });
